@@ -33,6 +33,10 @@ const jobSchema = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    postedDate: {
+        type: String,
+        required: true
+    },
     status: {
         type: String,
         enum: ['active', 'closed'],

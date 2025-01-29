@@ -28,13 +28,13 @@ const startServer = async () => {
     console.log('DB connection completed')
     
     // Seed data in development environment
-    if (process.env.NODE_ENV === 'development') {
-      // await seedData();
+    if (process.env.RNODE_ENV === 'development') {
+      await seedData();
       console.log('Data seeded successfully')
     }
     
     app.listen(PORT, () => {
-      console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+      console.log(`Server running in ${process.env.RNODE_ENV || 'development'} mode on port ${PORT}`);
     });
   } catch (err) {
     console.error('Failed to start server:', err.message);
