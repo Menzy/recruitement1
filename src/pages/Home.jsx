@@ -10,10 +10,23 @@ const Home = () => {
             {/* Hero Section */}
             <Box
                 sx={{
-                    bgcolor: 'primary.main',
+                    position: 'relative',
                     color: 'white',
-                    py: 8,
-                    mb: 6
+                    py: { xs: 10, md: 12 }, // Increased padding by 20%
+                    mb: 6,
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundImage: 'url(https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1920&auto=format&fit=crop)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        filter: 'brightness(0.4)',
+                        zIndex: -1
+                    }
                 }}
             >
                 <Container maxWidth="lg">
@@ -25,7 +38,8 @@ const Home = () => {
                                 sx={{ 
                                     fontWeight: 700,
                                     mb: 2,
-                                    fontSize: { xs: '2.5rem', md: '3.5rem' }
+                                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                                    textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
                                 }}
                             >
                                 Find Your Dream Job Today
@@ -35,7 +49,8 @@ const Home = () => {
                                 sx={{ 
                                     mb: 4,
                                     opacity: 0.9,
-                                    fontWeight: 400
+                                    fontWeight: 400,
+                                    textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
                                 }}
                             >
                                 Connect with top employers and discover opportunities that match your skills and aspirations.
@@ -59,6 +74,91 @@ const Home = () => {
                     </Grid>
                 </Container>
             </Box>
+
+            {/* Career Fair Section */}
+            <Container maxWidth="lg" sx={{ mb: 8 }}>
+                <Paper 
+                    sx={{ 
+                        borderRadius: 2,
+                        overflow: 'hidden',
+                        display: 'flex',
+                        flexDirection: { xs: 'column', md: 'row' }
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: { xs: '100%', md: '50%' },
+                            height: { xs: '300px', md: '400px' },
+                            backgroundImage: 'url(https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop)',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }}
+                    />
+                    <Box 
+                        sx={{ 
+                            p: 4,
+                            width: { xs: '100%', md: '50%' },
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center'
+                        }}
+                    >
+                        <Typography 
+                            variant="overline" 
+                            sx={{ 
+                                color: 'primary.main',
+                                fontWeight: 600,
+                                letterSpacing: 1
+                            }}
+                        >
+                            Upcoming Event
+                        </Typography>
+                        <Typography 
+                            variant="h4" 
+                            component="h2" 
+                            sx={{ 
+                                fontWeight: 700,
+                                mb: 2
+                            }}
+                        >
+                            Spring Tech Career Fair 2024
+                        </Typography>
+                        <Typography 
+                            variant="body1" 
+                            sx={{ 
+                                color: 'text.secondary',
+                                mb: 3
+                            }}
+                        >
+                            Join us for our annual career fair featuring top tech companies from Silicon Valley. Network with industry leaders, attend workshops, and find your next career opportunity.
+                        </Typography>
+                        <Box sx={{ mb: 3 }}>
+                            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                                📅 March 15, 2024
+                            </Typography>
+                            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                                📍 Tech Convention Center
+                            </Typography>
+                            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
+                                🕒 9:00 AM - 5:00 PM
+                            </Typography>
+                        </Box>
+                        <Button 
+                            variant="contained" 
+                            size="large"
+                            sx={{ 
+                                width: 'fit-content',
+                                px: 4,
+                                py: 1.5,
+                                fontSize: '1.1rem',
+                                fontWeight: 600
+                            }}
+                        >
+                            Register Now
+                        </Button>
+                    </Box>
+                </Paper>
+            </Container>
 
             {/* Features Section */}
             <Container maxWidth="lg" sx={{ mb: 8 }}>
