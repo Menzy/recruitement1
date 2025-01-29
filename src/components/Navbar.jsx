@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Typography, Button, Box, Container, useScrollTrigger, 
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import PersonIcon from '@mui/icons-material/Person';
 
 const Navbar = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -48,7 +49,7 @@ const Navbar = () => {
                     </Typography>
 
                     {/* Desktop Menu */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2, alignItems: 'center' }}>
                         <Button 
                             component={Link} 
                             to="/"
@@ -71,6 +72,26 @@ const Navbar = () => {
                         </Button>
                         <Button 
                             component={Link} 
+                            to="/sectors"
+                            sx={{ 
+                                color: isActive('/sectors') ? 'primary.main' : 'text.primary',
+                                fontWeight: isActive('/sectors') ? 600 : 400
+                            }}
+                        >
+                            Sectors
+                        </Button>
+                        <Button 
+                            component={Link} 
+                            to="/team"
+                            sx={{ 
+                                color: isActive('/team') ? 'primary.main' : 'text.primary',
+                                fontWeight: isActive('/team') ? 600 : 400
+                            }}
+                        >
+                            Our Team
+                        </Button>
+                        <Button 
+                            component={Link} 
                             to="/blog"
                             sx={{ 
                                 color: isActive('/blog') ? 'primary.main' : 'text.primary',
@@ -79,10 +100,30 @@ const Navbar = () => {
                         >
                             Blog
                         </Button>
+                        <Button
+                            component={Link}
+                            to="/auth"
+                            variant="contained"
+                            startIcon={<PersonIcon />}
+                            sx={{
+                                ml: 2,
+                                px: 3
+                            }}
+                        >
+                            Sign In
+                        </Button>
                     </Box>
 
                     {/* Mobile Menu */}
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                        <Button
+                            component={Link}
+                            to="/auth"
+                            variant="contained"
+                            sx={{ mr: 2 }}
+                        >
+                            Sign In
+                        </Button>
                         <IconButton
                             size="large"
                             edge="end"
@@ -111,6 +152,8 @@ const Navbar = () => {
                         >
                             <MenuItem onClick={handleClose} component={Link} to="/">Home</MenuItem>
                             <MenuItem onClick={handleClose} component={Link} to="/jobs">Jobs</MenuItem>
+                            <MenuItem onClick={handleClose} component={Link} to="/sectors">Sectors</MenuItem>
+                            <MenuItem onClick={handleClose} component={Link} to="/team">Our Team</MenuItem>
                             <MenuItem onClick={handleClose} component={Link} to="/blog">Blog</MenuItem>
                         </Menu>
                     </Box>

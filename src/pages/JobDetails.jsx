@@ -1,4 +1,4 @@
-import { Container, Typography, Box, Button, Chip, Paper, List, ListItem, ListItemIcon, ListItemText, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@mui/material';
+import { Container, Typography, Box, Button, Chip, Paper, List, ListItem, ListItemIcon, ListItemText, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Grid } from '@mui/material';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { jobListings } from '../data/jobListings';

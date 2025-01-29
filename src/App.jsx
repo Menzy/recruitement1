@@ -8,6 +8,9 @@ import JobDetails from './pages/JobDetails';
 import Blog from './pages/Blog';
 import BlogDetails from './pages/BlogDetails';
 import Admin from './pages/Admin';
+import Team from './pages/Team';
+import Sectors from './pages/Sectors';
+import Auth from './pages/Auth';
 
 const theme = createTheme({
   palette: {
@@ -79,6 +82,9 @@ function App() {
               <Route path="/jobs/:slug" element={<JobDetails />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogDetails />} />
+              <Route path="/team" element={<Team />} />
+              <Route path="/sectors" element={<Sectors />} />
+              <Route path="/auth" element={<Auth />} />
               <Route path="/admin-panel" element={<Admin />} />
             </Routes>
           </Box>

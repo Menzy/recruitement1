@@ -188,5 +188,100 @@ export const jobListings = [
         ],
         companyLogo: "https://images.unsplash.com/photo-1542744094-24638eff58bb?w=400&auto=format&fit=crop",
         postedDate: "2024-02-20"
+    },
+    {
+        id: 11,
+        title: "AI/ML Research Scientist",
+        slug: "ai-ml-research-scientist",
+        company: "AI Innovations Lab",
+        location: "Cambridge, MA",
+        salary: "$140,000 - $180,000",
+        employmentType: "Full-time",
+        description: "Join our research team to develop cutting-edge AI/ML solutions. You'll work on challenging problems in natural language processing and computer vision.",
+        requirements: [
+            "PhD in Computer Science, Machine Learning, or related field",
+            "Strong publication record in top-tier conferences",
+            "Experience with PyTorch or TensorFlow",
+            "Expertise in deep learning architectures",
+            "Strong mathematical and statistical background"
+        ],
+        companyLogo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&auto=format&fit=crop",
+        postedDate: "2024-03-02"
+    },
+    {
+        id: 12,
+        title: "Cybersecurity Analyst",
+        slug: "cybersecurity-analyst",
+        company: "SecureNet Defense",
+        location: "Washington, DC",
+        salary: "$95,000 - $125,000",
+        employmentType: "Full-time",
+        description: "Protect our organization from cyber threats. You'll be responsible for monitoring security systems, conducting vulnerability assessments, and responding to incidents.",
+        requirements: [
+            "5+ years of cybersecurity experience",
+            "CISSP or equivalent certification",
+            "Experience with SIEM tools",
+            "Knowledge of threat hunting and incident response",
+            "Strong analytical skills"
+        ],
+        companyLogo: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&auto=format&fit=crop",
+        postedDate: "2024-03-01"
+    },
+    {
+        id: 13,
+        title: "Blockchain Developer",
+        slug: "blockchain-developer",
+        company: "CryptoTech Solutions",
+        location: "Remote",
+        salary: "$110,000 - $150,000",
+        employmentType: "Contract",
+        description: "Develop and maintain blockchain applications. You'll work on smart contracts, DeFi protocols, and web3 integrations.",
+        requirements: [
+            "3+ years of blockchain development experience",
+            "Proficiency in Solidity and Web3.js",
+            "Experience with Ethereum and other blockchain platforms",
+            "Strong understanding of cryptography",
+            "Knowledge of DeFi protocols"
+        ],
+        companyLogo: "https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=400&auto=format&fit=crop",
+        postedDate: "2024-02-29"
+    },
+    {
+        id: 14,
+        title: "Technical Project Manager",
+        slug: "technical-project-manager",
+        company: "InnovateHub",
+        location: "Chicago, IL",
+        salary: "$100,000 - $130,000",
+        employmentType: "Full-time",
+        description: "Lead technical projects from inception to delivery. You'll work with cross-functional teams to ensure successful project execution.",
+        requirements: [
+            "6+ years of project management experience",
+            "PMP certification",
+            "Strong technical background",
+            "Experience with Agile methodologies",
+            "Excellent communication skills"
+        ],
+        companyLogo: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&auto=format&fit=crop",
+        postedDate: "2024-02-28"
+    },
+    {
+        id: 15,
+        title: "Cloud Solutions Architect",
+        slug: "cloud-solutions-architect",
+        company: "CloudTech Innovations",
+        location: "Austin, TX",
+        salary: "$135,000 - $175,000",
+        employmentType: "Full-time",
+        description: "Design and implement cloud-native solutions. You'll be responsible for architecture decisions and cloud strategy.",
+        requirements: [
+            "8+ years of cloud architecture experience",
+            "AWS/Azure/GCP certifications",
+            "Experience with microservices and containerization",
+            "Strong understanding of cloud security",
+            "Excellent problem-solving skills"
+        ],
+        companyLogo: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&auto=format&fit=crop",
+        postedDate: "2024-02-27"
     }
 ];
