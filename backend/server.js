@@ -5,6 +5,7 @@ const blogRoutes = require('./routes/blog')
 const adminRoutes = require('./routes/admin')
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
+const seedData = require('./utils/seedData');
 require('dotenv').config();
 
 const app = express();
@@ -20,28 +21,33 @@ app.use('/api/v1/admin', adminRoutes);
 
 const PORT = process.env.PORT || 4000;
 
-// mongoose.connect(process.env.MONGODB_URI)
-//     .then(() => {
-//         console.log('Connected to MongoDB');
-//         app.listen(PORT, () => {
-//             console.log(`Server is running on port ${PORT}`);
-//         });
-//     })
-//     .catch((error) => {
-//         console.error('Error connecting to MongoDB:', error);
-//     });
-
-
-// Connect to MongoDB Atlas
-connectDB().then(() => {
-  // Seed data in development environment
-  if (process.env.NODE_ENV === 'development') {
-    seedData().catch(console.error);
+// Connect to MongoDB Atlas and start server
+const startServer = async () => {
+  try {
+    await connectDB();
+    console.log('DB connection completed')
+    
+    // Seed data in development environment
+    if (process.env.NODE_ENV === 'development') {
+      // await seedData();
+      console.log('Data seeded successfully')
+    }
+    
+    app.listen(PORT, () => {
+      console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error('Failed to start server:', err.message);
   }
-}).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-  });
-}).catch((err) => {
-  console.log(err);
-});
+};
+
+startServer();
+
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://reggiedee:MongoNafetiti14@tcluster0.lkavasg.mongodb.net/recruitment?retryWrites=true&w=majority&appName=TCluster0')
+//   .then(() => console.log('Connected to MongoDB'))
+//   .then(() => {
+//     app.listen(PORT, () => {
+//       console.log(`Server is running on port ${PORT}`);
+//     });
+//   })
+//   .catch((error) => console.error('MongoDB connection error:', error));
