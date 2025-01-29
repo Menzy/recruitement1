@@ -1,45 +1,108 @@
-import { Container, Typography, Grid, Card, CardContent, CardActions, Button } from '@mui/material';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Container, Typography, Grid, Card, CardContent, CardActions, Button, Box, Avatar, Chip } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
+import { blogPosts } from '../data/blogPosts';
 
 const Blog = () => {
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await axios.get('http://localhost:4000/api/v1/blog');
-                setPosts(response.data);
-            } catch (error) {
-                console.error('Error fetching blog posts:', error);
-            }
-        };
-
-        fetchPosts();
-    }, []);
-
     return (
-        <Container maxWidth="lg" sx={{ mt: 4 }}>
-            <Typography variant="h4" component="h1" gutterBottom>
-                Blog Posts
+        <Container maxWidth="lg" sx={{ py: 4 }}>
+            <Typography 
+                variant="h4" 
+                component="h1" 
+                gutterBottom 
+                sx={{ 
+                    fontWeight: 600,
+                    mb: 4
+                }}
+            >
+                Career Insights & Tips
             </Typography>
-            <Grid container spacing={3}>
-                {posts.map((post) => (
-                    <Grid item xs={12} sm={6} md={4} key={post._id}>
-                        <Card>
-                            <CardContent>
-                                <Typography variant="h6" gutterBottom>
+            <Grid container spacing={4}>
+                {blogPosts.map((post) => (
+                    <Grid item xs={12} md={4} key={post.id}>
+                        <Card 
+                            sx={{ 
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                '&:hover': {
+                                    boxShadow: 6
+                                }
+                            }}
+                        >
+                            <Box 
+                                sx={{ 
+                                    paddingTop: '56.25%',
+                                    position: 'relative',
+                                    backgroundImage: `url(${post.featuredImage})`,
+                                    backgroundSize: 'cover',
+                                    backgroundPosition: 'center'
+                                }}
+                            />
+                            <CardContent sx={{ flexGrow: 1 }}>
+                                <Box sx={{ mb: 2 }}>
+                                    {post.tags.map((tag, index) => (
+                                        <Chip
+                                            key={index}
+                                            label={tag}
+                                            size="small"
+                                            sx={{ 
+                                                mr: 1,
+                                                mb: 1,
+                                                backgroundColor: 'primary.light',
+                                                color: 'primary.main'
+                                            }}
+                                        />
+                                    ))}
+                                </Box>
+                                <Typography 
+                                    variant="h6" 
+                                    gutterBottom
+                                    sx={{ 
+                                        fontWeight: 600,
+                                        lineHeight: 1.3
+                                    }}
+                                >
                                     {post.title}
                                 </Typography>
-                                <Typography variant="body2" color="text.secondary">
-                                    By {post.author?.username}
-                                </Typography>
-                                <Typography variant="body2" sx={{ mt: 2 }}>
+                                <Typography 
+                                    variant="body2" 
+                                    color="text.secondary"
+                                    sx={{ mb: 2 }}
+                                >
                                     {post.content.substring(0, 150)}...
                                 </Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                    <Avatar 
+                                        src={post.authorImage}
+                                        sx={{ 
+                                            width: 32,
+                                            height: 32,
+                                            mr: 1
+                                        }}
+                                    >
+                                        {post.author[0]}
+                                    </Avatar>
+                                    <Box>
+                                        <Typography variant="subtitle2">
+                                            {post.author}
+                                        </Typography>
+                                        <Typography variant="caption" color="text.secondary">
+                                            {new Date(post.date).toLocaleDateString()}
+                                        </Typography>
+                                    </Box>
+                                </Box>
                             </CardContent>
-                            <CardActions>
-                                <Button size="small" color="primary">
+                            <CardActions sx={{ p: 2, pt: 0 }}>
+                                <Button 
+                                    component={RouterLink}
+                                    to={`/blog/${post.slug}`}
+                                    variant="outlined" 
+                                    fullWidth
+                                    sx={{ 
+                                        textTransform: 'none',
+                                        fontWeight: 600
+                                    }}
+                                >
                                     Read More
                                 </Button>
                             </CardActions>
