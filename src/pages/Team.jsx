@@ -14,7 +14,7 @@ const teamMembers = [
     {
         name: 'Michael Chen',
         role: 'CTO',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop',
+        image: 'https://unsplash.com/photos/a-man-in-a-dress-shirt-and-tie-posing-for-a-picture-h3HChDgykOU?w=400&auto=format&fit=crop',
         bio: 'A tech veteran with experience at major Silicon Valley companies, Michael leads our technological innovation.',
         linkedin: '#',
         twitter: '#'
